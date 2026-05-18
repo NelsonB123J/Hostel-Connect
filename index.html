@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./public/HostelConnect Logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HostelConnect NG — Find Safe Student Hostels</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Navbar -->
+      <nav class="navbar" id="navbar">
+        <div class="nav-container">
+          <a href="#" class="nav-brand" data-page="home">
+            <img src="./public/HostelConnect Logo.png" alt="HostelConnect NG" class="nav-logo" />
+            <span class="nav-brand-text">HostelConnect <span class="brand-ng">NG</span></span>
+          </a>
+          <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="nav-links" id="nav-links">
+            <a href="#" class="nav-link" data-page="home">Home</a>
+            <a href="#" class="nav-link" data-page="listings">Browse Hostels</a>
+            <a href="#" class="nav-link" data-page="list-hostel">List Your Hostel</a>
+            <a href="#" class="btn btn-orange nav-cta" data-page="listings">Find a Hostel</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Pages -->
+      <main id="main-content">
+
+        <!-- HOME PAGE -->
+        <section id="page-home" class="page active">
+
+          <!-- Hero Section -->
+          <div class="hero">
+            <div class="hero-bg-overlay"></div>
+            <div class="hero-content">
+              <div class="hero-logo-wrap">
+                <img src="./public/HostelConnect Logo.png" alt="HostelConnect NG" class="hero-logo" />
+              </div>
+              <div class="hero-badge">Nigeria's #1 Student Hostel Platform</div>
+              <h1 class="hero-title">Find safe, verified student hostels near your university — <span class="accent-green">no scams, no stress.</span></h1>
+              <p class="hero-sub">Think <strong>Jumia + Airbnb</strong> — but built for Nigerian students. Browse real photos, read inspection reports, and move in with confidence.</p>
+              <div class="hero-trust-row">
+                <div class="hero-trust-item"><span class="trust-dot"></span>Verified Listings</div>
+                <div class="hero-trust-item"><span class="trust-dot"></span>Real Photos</div>
+                <div class="hero-trust-item"><span class="trust-dot"></span>Student Reviews</div>
+                <div class="hero-trust-item"><span class="trust-dot"></span>Campus Distance</div>
+              </div>
+              <div class="hero-cta-row">
+                <button class="btn btn-orange btn-lg" data-page="listings">Browse Hostels</button>
+                <button class="btn btn-outline btn-lg" data-page="list-hostel">List Your Hostel</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Section -->
+          <div class="stats-section">
+            <div class="section-inner">
+              <div class="section-tag center">Why HostelConnect NG?</div>
+              <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number">120<span>+</span></div><div class="stat-text">Listed Hostels</div></div>
+                <div class="stat-card"><div class="stat-number">75<span>+</span></div><div class="stat-text">Verified Hostels</div></div>
+                <div class="stat-card"><div class="stat-number">3,000<span>+</span></div><div class="stat-text">Monthly Student Users</div></div>
+                <div class="stat-card"><div class="stat-number">12<span>+</span></div><div class="stat-text">Universities Covered</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- How it Works Section -->
+          <div class="section">
+            <div class="section-inner">
+              <div class="section-tag center">Simple & Fast</div>
+              <h2 class="section-title center">How HostelConnect NG Works</h2>
+              <div class="steps-grid">
+                <div class="step-card"><div class="step-icon">🔍</div><div class="step-num">01</div><h3>Search Your University</h3><p>Enter your school and filter by price, distance, and facilities to find your perfect match.</p></div>
+                <div class="step-card"><div class="step-icon">✅</div><div class="step-num">02</div><h3>Browse Verified Listings</h3><p>Every verified hostel has been physically inspected by our team. No fake listings, ever.</p></div>
+                <div class="step-card"><div class="step-icon">📖</div><div class="step-num">03</div><h3>Read Real Reviews</h3><p>Check reviews from students who've lived there. Honest feedback, real experiences.</p></div>
+                <div class="step-card"><div class="step-icon">🏠</div><div class="step-num">04</div><h3>Book with Confidence</h3><p>Request a booking directly. No middlemen, no hidden fees, no stories that touch.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Hostels -->
+          <div class="section section-alt">
+            <div class="section-inner">
+              <div class="section-tag center">Top Picks</div>
+              <h2 class="section-title center">Featured Hostels</h2>
+              <div class="hostel-grid featured-grid" id="featured-hostels"></div>
+              <div class="center-cta">
+                <button class="btn btn-orange btn-lg" data-page="listings">View All Hostels</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trust -->
+          <div class="section trust-section">
+            <div class="section-inner trust-inner">
+              <div class="trust-text-col">
+                <div class="section-tag">Our Promise</div>
+                <h2 class="section-title">We protect you from hostel scams</h2>
+                <p class="trust-desc">Nigeria's student housing market is full of fraudsters. That's why every listing on HostelConnect NG goes through our physical verification process before it goes live.</p>
+                <div class="trust-points">
+                  <div class="trust-point"><div class="trust-point-icon green">✓</div><div><strong>Physically Inspected</strong><p>Our team visits every hostel in person before granting the Verified badge.</p></div></div>
+                  <div class="trust-point"><div class="trust-point-icon green">✓</div><div><strong>Annual Renewal</strong><p>Verification is renewed every year. Standards must be maintained.</p></div></div>
+                  <div class="trust-point"><div class="trust-point-icon green">✓</div><div><strong>Student Reviews</strong><p>Real reviews from real students who've lived in the hostel.</p></div></div>
+                  <div class="trust-point"><div class="trust-point-icon orange">🔒</div><div><strong>No Scam Policy</strong><p>Any hostel found to be fraudulent is immediately delisted and reported.</p></div></div>
+                </div>
+              </div>
+              <div class="trust-badge-col">
+                <div class="trust-badge-card">
+                  <div class="verified-seal">
+                    <div class="verified-check">✓</div>
+                    <div class="verified-label">VERIFIED</div>
+                    <div class="verified-sub">HostelConnect NG</div>
+                  </div>
+                  <p class="trust-badge-text">"Our verification team visits listed hostels annually to ensure quality and safety for every student."</p>
+                  <div class="trust-badge-footer">— HostelConnect NG Trust Team</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- For Owners -->
+          <div class="section section-alt">
+            <div class="section-inner">
+              <div class="section-tag center">For Hostel Owners</div>
+              <h2 class="section-title center">Grow your hostel business</h2>
+              <p class="owners-sub center">Reach thousands of students actively searching for accommodation every semester.</p>
+              <div class="owners-grid">
+                <div class="owner-card"><div class="owner-icon">📋</div><h3>Listing Fee</h3><p>List your hostel and reach thousands of students searching for accommodation near their campus.</p></div>
+                <div class="owner-card"><div class="owner-icon">🏅</div><h3>Verified Badge</h3><p>Get physically inspected and earn the trusted Verified badge. Students book verified hostels first.</p></div>
+                <div class="owner-card"><div class="owner-icon">📢</div><h3>Advertise</h3><p>Boost your visibility with premium placement and targeted ads during orientation weeks.</p></div>
+                <div class="owner-card"><div class="owner-icon">🤝</div><h3>Student Services</h3><p>Partner with us for student service bundles — laundry, food, internet and more.</p></div>
+              </div>
+              <div class="center-cta">
+                <button class="btn btn-orange btn-lg" data-page="list-hostel">List Your Hostel Today</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <footer class="footer">
+            <div class="footer-inner">
+              <div class="footer-brand">
+                <img src="./public/HostelConnect Logo.png" alt="HostelConnect NG" class="footer-logo" />
+                <span class="footer-brand-text">HostelConnect <span class="brand-ng">NG</span></span>
+              </div>
+              <p class="footer-tagline">Nigeria's safest student hostel platform.</p>
+              <div class="footer-links">
+                <a href="#" data-page="home">Home</a>
+                <a href="#" data-page="listings">Browse</a>
+                <a href="#" data-page="list-hostel">List Hostel</a>
+              </div>
+              <p class="footer-copy">&copy; 2026 HostelConnect NG. All rights reserved.</p>
+            </div>
+          </footer>
+        </section>
+
+        <!-- LISTINGS PAGE -->
+        <section id="page-listings" class="page">
+          <div class="inner-hero">
+            <div class="section-inner">
+              <h1>Browse Student Hostels</h1>
+              <p>Find verified, affordable hostels near your university</p>
+            </div>
+          </div>
+          <div class="listings-layout">
+            <!-- Filters -->
+            <aside class="filters-panel" id="filters-panel">
+              <div class="filters-header">
+                <h3>Filters</h3>
+                <button class="filters-close" id="filters-close" aria-label="Close filters">✕</button>
+              </div>
+              <div class="filter-group">
+                <label class="filter-label">University</label>
+                <select class="filter-select" id="filter-university">
+                  <option value="">All Universities</option>
+                  <option value="UNILAG">UNILAG</option>
+                  <option value="UNN">UNN</option>
+                  <option value="ABU">ABU</option>
+                  <option value="UI">UI</option>
+                  <option value="FUTA">FUTA</option>
+                  <option value="LASU">LASU</option>
+                  <option value="OAU">OAU</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label class="filter-label">Max Price per Year</label>
+                <div class="price-display" id="price-display">Up to ₦500,000</div>
+                <input type="range" class="filter-range" id="filter-price" min="50000" max="500000" step="10000" value="500000" />
+              </div>
+              <div class="filter-group">
+                <label class="filter-label">Max Distance from Campus</label>
+                <select class="filter-select" id="filter-distance">
+                  <option value="">Any Distance</option>
+                  <option value="0.5">Within 500m</option>
+                  <option value="1">Within 1km</option>
+                  <option value="2">Within 2km</option>
+                  <option value="5">Within 5km</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label class="filter-label">Facilities</label>
+                <div class="filter-checks">
+                  <label class="check-label"><input type="checkbox" value="WiFi" class="facility-check" /> WiFi</label>
+                  <label class="check-label"><input type="checkbox" value="24hr Security" class="facility-check" /> 24hr Security</label>
+                  <label class="check-label"><input type="checkbox" value="Running Water" class="facility-check" /> Running Water</label>
+                  <label class="check-label"><input type="checkbox" value="Electricity" class="facility-check" /> Electricity/Gen</label>
+                  <label class="check-label"><input type="checkbox" value="Kitchen" class="facility-check" /> Kitchen</label>
+                  <label class="check-label"><input type="checkbox" value="Parking" class="facility-check" /> Parking</label>
+                  <label class="check-label"><input type="checkbox" value="Laundry" class="facility-check" /> Laundry</label>
+                </div>
+              </div>
+              <div class="filter-group">
+                <label class="toggle-label">
+                  <span>Verified Only</span>
+                  <div class="toggle-wrap">
+                    <input type="checkbox" id="filter-verified" class="toggle-input" />
+                    <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                  </div>
+                </label>
+              </div>
+              <button class="btn btn-orange w-full" id="apply-filters">Apply Filters</button>
+              <button class="btn btn-ghost w-full" id="reset-filters">Reset All</button>
+            </aside>
+
+            <!-- Grid -->
+            <div class="listings-main">
+              <div class="listings-toolbar">
+                <div class="listings-count" id="listings-count">Loading hostels...</div>
+                <div class="toolbar-right">
+                  <select class="filter-select sort-select" id="sort-select">
+                    <option value="default">Sort: Featured</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="distance">Nearest First</option>
+                    <option value="rating">Top Rated</option>
+                  </select>
+                  <button class="btn btn-ghost filter-toggle-btn" id="filter-toggle-btn">&#9776; Filters</button>
+                </div>
+              </div>
+              <div class="hostel-grid" id="hostel-grid"></div>
+              <div class="no-results hidden" id="no-results">
+                <div class="no-results-icon">🏚️</div>
+                <h3>No hostels found</h3>
+                <p>Try adjusting your filters</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DETAIL PAGE -->
+        <section id="page-detail" class="page">
+          <div id="detail-content"></div>
+        </section>
+
+        <!-- LIST HOSTEL PAGE -->
+        <section id="page-list-hostel" class="page">
+          <div class="inner-hero">
+            <div class="section-inner">
+              <h1>List Your Hostel</h1>
+              <p>Join 120+ hostel owners reaching thousands of students every month.</p>
+            </div>
+          </div>
+          <div class="form-page-body">
+            <div class="section-inner">
+              <div class="form-benefits">
+                <div class="form-benefit-card"><div class="benefit-icon">👁️</div><h3>Maximum Visibility</h3><p>Your hostel reaches 3,000+ students monthly actively searching for accommodation.</p></div>
+                <div class="form-benefit-card"><div class="benefit-icon">🏅</div><h3>Earn Verified Badge</h3><p>Pass our inspection and earn the Verified badge students trust most.</p></div>
+                <div class="form-benefit-card"><div class="benefit-icon">📈</div><h3>Fill Rooms Faster</h3><p>Reduce vacancy periods with direct student bookings every semester.</p></div>
+              </div>
+
+              <div class="list-form-card" id="list-form-card">
+                <h2 class="form-title">Submit Your Hostel</h2>
+                <p class="form-sub">Fill in the details below and our team will reach out within 48 hours.</p>
+                <form id="list-hostel-form" novalidate>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">Hostel Name *</label>
+                      <input type="text" class="form-input" id="form-name" placeholder="e.g. Excel Student Lodge" />
+                      <span class="form-error" id="err-name"></span>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Nearest University *</label>
+                      <select class="form-input" id="form-university">
+                        <option value="">Select University</option>
+                        <option>UNILAG</option><option>UNN</option><option>ABU</option>
+                        <option>UI</option><option>FUTA</option><option>LASU</option>
+                        <option>OAU</option><option>Other</option>
+                      </select>
+                      <span class="form-error" id="err-university"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Hostel Address / Location *</label>
+                    <input type="text" class="form-input" id="form-location" placeholder="e.g. 12 Akoka Road, Yaba, Lagos" />
+                    <span class="form-error" id="err-location"></span>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">Price per Year (₦) *</label>
+                      <input type="number" class="form-input" id="form-price" placeholder="e.g. 150000" />
+                      <span class="form-error" id="err-price"></span>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Distance from Campus *</label>
+                      <input type="text" class="form-input" id="form-distance" placeholder="e.g. 0.8km" />
+                      <span class="form-error" id="err-distance"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Facilities (select all that apply)</label>
+                    <div class="facility-checks-grid">
+                      <label class="check-label"><input type="checkbox" name="facility" value="WiFi" /> WiFi</label>
+                      <label class="check-label"><input type="checkbox" name="facility" value="24hr Security" /> 24hr Security</label>
+                      <label class="check-label"><input type="checkbox" name="facility" value="Running Water" /> Running Water</label>
+                      <label class="check-label"><input type="checkbox" name="facility" value="Electricity" /> Electricity/Gen</label>
+                      <label class="check-label"><input type="checkbox" name="facility" value="Kitchen" /> Kitchen</label>
+                      <label class="check-label"><input type="checkbox" name="facility" value="Parking" /> Parking</label>
+                      <label class="check-label"><input type="checkbox" name="facility" value="Laundry" /> Laundry</label>
+                      <label class="check-label"><input type="checkbox" name="facility" value="CCTV" /> CCTV</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Hostel Description *</label>
+                    <textarea class="form-input form-textarea" id="form-desc" placeholder="Describe your hostel — rooms, environment, security measures..."></textarea>
+                    <span class="form-error" id="err-desc"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Owner / Contact Name *</label>
+                    <input type="text" class="form-input" id="form-owner" placeholder="Your full name" />
+                    <span class="form-error" id="err-owner"></span>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">Phone Number *</label>
+                      <input type="tel" class="form-input" id="form-phone" placeholder="08012345678" />
+                      <span class="form-error" id="err-phone"></span>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Email Address *</label>
+                      <input type="email" class="form-input" id="form-email" placeholder="owner@email.com" />
+                      <span class="form-error" id="err-email"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Upload Images</label>
+                    <div class="upload-area" id="upload-area">
+                      <div class="upload-icon">📷</div>
+                      <div class="upload-text">Tap to upload hostel photos</div>
+                      <div class="upload-hint">JPG, PNG — max 5 files</div>
+                      <input type="file" id="form-images" accept="image/*" multiple style="display:none;" />
+                    </div>
+                    <div class="upload-preview" id="upload-preview"></div>
+                  </div>
+                  <button type="submit" class="btn btn-orange w-full btn-lg">Submit Hostel for Review</button>
+                </form>
+              </div>
+
+              <div class="form-success hidden" id="form-success">
+                <div class="success-icon">✅</div>
+                <h2>Submission Received!</h2>
+                <p>Thank you! Our team will review your hostel and reach out within <strong>48 hours</strong> to schedule a physical inspection.</p>
+                <p class="success-note">Look out for a call from HostelConnect NG.</p>
+                <button class="btn btn-orange" data-page="home">Back to Home</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- Sticky mobile CTA -->
+    <div class="sticky-cta" id="sticky-cta">
+      <button class="btn btn-orange w-full" data-page="listings">Browse Hostels Now</button>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
